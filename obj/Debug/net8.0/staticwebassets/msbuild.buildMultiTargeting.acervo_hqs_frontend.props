@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\acervo_hqs_frontend.props" />
+</Project>

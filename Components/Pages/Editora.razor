@@ -1,0 +1,39 @@
+﻿@page "/editoras"
+@using acervo_hqs_frontend.Model;
+@inject acervo_hqs_frontend.Services.AcervoHQService AcervoHQService
+
+<PageTitle>Editoras</PageTitle>
+
+<h1>Editoras</h1>
+
+Aqui vai ter a Lista de Editoras Cadastradas
+
+@if (editoras == null)
+{
+    <p><em>Carregando...</em></p>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <th>Id</th>
+            <th>Nome da Editora</th>
+        </thead>
+        @foreach (var editora in editoras)
+        {
+            <tbody>
+                <td>@editora.Id</td>
+                <td>@editora.NomeEditora</td>
+            </tbody>
+        }
+    </table>
+}
+
+@code {
+    private List<EditoraModel> editoras;
+
+    protected override async Task OnInitializedAsync()
+    {
+        editoras = await AcervoHQService.GetAllEditoras();
+    }
+}

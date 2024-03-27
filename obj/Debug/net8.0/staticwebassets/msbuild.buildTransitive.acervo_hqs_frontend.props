@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\acervo_hqs_frontend.props" />
+</Project>
